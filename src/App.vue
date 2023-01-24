@@ -5,6 +5,8 @@ import AppHeader from './components/AppHeader.vue';
 import AdoptMenu from './components/AdoptMenu.vue';
 import AppNavigation from './components/AppNavigation.vue';
 import HabitShop from './components/HabitShop.vue';
+import ToDoButton from './components/ToDoButton.vue'
+import ToDoListMenu from './components/ToDoListMenu.vue'
 
 export default {
   name: 'App',
@@ -12,6 +14,7 @@ export default {
     return {
       adoptMenuIsVisible: false,
       currentPage: "Pets",
+      toDoListMenuIsVisible: false,
     }
   },
   components: {
@@ -21,6 +24,8 @@ export default {
     AdoptMenu,
     AppNavigation,
     HabitShop,
+    ToDoButton,
+    ToDoListMenu
   },
   methods: {
     goToPage(page) {
@@ -39,8 +44,10 @@ export default {
 
     <AdoptButton @openAdoptMenu="(this.adoptMenuIsVisible = !this.adoptMenuIsVisible)"></AdoptButton>
     <AppNavigation @goToPets="goToPage" @goToShop="goToPage"></AppNavigation>
+    <ToDoButton @openToDoListMenu="(this.toDoListMenuIsVisible = !this.toDoListMenuIsVisible)"/>
 
     <AdoptMenu :style="{ visibility: (adoptMenuIsVisible ? 'visible': 'hidden')}"  @closeAdoptMenu="this.adoptMenuIsVisible = !this.adoptMenuIsVisible"></AdoptMenu>
+    <ToDoListMenu :style="{ visibility: (toDoListMenuIsVisible ? 'visible': 'hidden')}"  @closeToDoListMenu="this.toDoListMenuIsVisible = !this.toDoListMenuIsVisible"></ToDoListMenu>
   </div>
 </template>
 
