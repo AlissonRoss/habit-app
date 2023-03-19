@@ -15,7 +15,10 @@
     <div id="add-task-menu">
         <div id="background" v-on:click=(closeToDoListMenu)>
             <div id="menu" @mouseover="mouseInMenu=true" @mouseleave="mouseInMenu=false">
-                <form>
+                <h1 id="header-form">To Do List</h1>
+                <input type="text" id="newInput" placeholder="Enter new task here">
+                <button>Add</button>
+                <form id="form">
                     <input type="checkbox" id="task-1">
                         <label for="task-1"> Task #1 </label><br>
                     <input type="checkbox" id="task-2">
@@ -48,5 +51,17 @@
     background-color: white;
     border: 1px solid black;
     z-index: 2;
+    text-align: center;
+    border-radius: 25px;
+}
+#header-form{
+    width: 50;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+#form{
+    text-align: left;
+    padding-left: 8em;
+    padding-top: 1em;
 }
 </style>
